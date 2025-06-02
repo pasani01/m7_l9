@@ -1,14 +1,11 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from .views import DictViewSet
+from .views import dictionary_list, dictionary_detail
 
 
-roter=DefaultRouter()
-
-roter.register('',DictViewSet,basename="dict")
 
 urlpatterns = [
-    
+    path('list/',dictionary_list,name='dict-list'),
+    path('detail',dictionary_detail,name='dict-detail'),
 ]
 
-urlpatterns+=roter.urls
